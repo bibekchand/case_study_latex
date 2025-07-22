@@ -1,23 +1,83 @@
 \documentclass[12pt, a4paper]{report}
 \usepackage[T1]{fontenc}
-% \usepackage{times} times new roman boring 
-\usepackage{ebgaramond-maths}
+\usepackage{times} %times new roman boring 
+%\usepackage{ebgaramond-maths}
 \usepackage{parskip}
+\usepackage{lmodern}
 \usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{enumitem}
+\setlist[enumerate]{nosep}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\setlength{\parindent} {0pt}
+\renewcommand{\contentsname}{Table of Contents}
+\makeatletter
+\def\@makechapterhead#1{%
+  %\vspace*{50pt}%
+  {  \MakeUppercase{\ifnum \c@secnumdepth >\m@ne
+        \fontsize{16pt}{1}\bfseries \@chapapp \space \thechapter\vspace{5pt}\\
+    \fi
+    \interlinepenalty\@M
+     \bfseries #1}\par\nobreak
+    %\vskip 0pt
+  }}
+\makeatother
+\renewcommand{\labelenumi}{\roman{enumi}.}
+\makeatletter
+% Redefine the \chapter* header macro to remove vertical space
+\def\@makeschapterhead#1{%
+  %\vspace*{50\p@}% Remove the vertical space
+  {\newpage \parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \center \fontsize{16pt}{1} \bfseries \MakeUppercase{#1}\par\nobreak
+    %\vskip 18\p@ % adjust space after heading 18pt
+  }}
+\makeatother 
+\usepackage[left = 1.5in, right = 1in, top = 1in, bottom = 1in]{geometry}
+\titlespacing*{\section}{0pt}{0pt}{0pt} %left, top, bottom spacings
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}{0pt}{0pt}{0pt}
+
+%adjust fontsizes\ of sections
+\titleformat*{\section}{\fontsize{14pt}{18pt}\bfseries}
+\titleformat*{\subsection}{\fontsize{13pt}{18pt}\bfseries}
+\titleformat*{\subsubsection}{\fontsize{12pt}{18pt}\bfseries}
+\titleformat*{\paragraph}{\fontsize{12pt}{18pt}\bfseries}
+\titleformat*{\subparagraph}{\fontsize{12pt}{18pt}\bfseries}
+
 \setlength{\parskip}{18pt}
 \linespread{1.5}
 \newcommand{\submittedBy}
 {
-\makebox[7.3cm]{Bibek Chand\hfill[KAN078BEI002]}\\
-\makebox[7.3cm]{Piriyanka Jha\hfill[KAN078BEI006]}\\
-\makebox[7.3cm]{Sujal Shrestha\hfill[KAN078BEI009]}
+\makebox[8.5cm]{Bibek Chand\hfill[KAN078BEI002]}\\
+\makebox[8.5cm]{Piriyanka Jha\hfill[KAN078BEI006]}\\
+\makebox[8.5cm]{Sujal Shrestha\hfill[KAN078BEI009]}
 }
 
 \newcommand{\project}{Case}
 \newcommand{\projectTitle}{Organization and Management of F1Soft} 
 \newcommand{\doc}{Study}
+
+\newcommand{\KECadjusttocspacings}
+{
+\setlength{\parskip}{0pt} % to remove paragraph spacing in TOC, LOF ...
+\renewcommand{\baselinestretch}{0.1} % to adjust line spacing in toc
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace} %remove extra vertical space in LOF
+\addtocontents{lot}{\protect\noaddvspace} %remove extra vertical space in LOT
+}
+
+
+
 \begin{document}
 %front page
+
+
+
 \begin{titlepage}
 \begin{center}
 {\Large \textbf{Kantipur Engineering College}}\\
@@ -45,6 +105,136 @@
 \end{center}
 \end{titlepage}
 
+\chapter*{Acknowledgment}
+\addcontentsline{toc}{chapter}{Acknowledgment}%to include this chapter in TOC
+We would like to express our sincere gratitude to all those who have contributed to the preparation of this proposal. First and foremost, we are thankful to Kantipur Engineering College for providing us with the opportunity to submit this proposal.
+
+We are deeply grateful to Er. Sujin Gwachha sir, whose guidance and support were invaluable throughout the process. Their expertise and insightful feedback helped shape this proposal into its final form.
+
+We would also like to acknowledge the support and encouragement from the Department of Computer and Electronics who provided us with their assistance and valuable suggestions.
 
 
+\par
+%to display members name under Acknowledgement
+\begin{flushright}
+\vskip 20pt
+\setstretch{1.2}
+\submittedBy
+\end{flushright}
+
+{
+\KECadjusttocspacings
+\makeatletter
+\def\@makeschapterhead#1{%
+  %\vspace*{50\p@}% Remove the vertical space above
+  {\newpage\parindent\z@\raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \centering
+    \fontsize{16pt}{20pt}\selectfont % ✅ MUST include \selectfont
+    \bfseries\MakeUppercase{#1}\par\nobreak
+    \vskip 18\p@ % space after heading
+  }}
+\makeatother
+
+
+ 
+% defined in KECReportFormat.tex to adjust spacings
+\tableofcontents
+}
+\chapter{Introduction}
+\section{Background}
+Understanding how organizations operate in the real world is a key aspect of the subject Organization and Management. This field of study focuses on how organizations are structured, how roles and responsibilities are distributed, how decisions are made, and how resources are managed to achieve goals efficiently. It also explores various management theories and their practical implications in today's dynamic business environment.
+
+To connect these academic concepts with real-life practices, our group conducted a case study on F1Soft International Pvt. Ltd., a prominent fintech company in Nepal. Established with the aim of digitizing financial services, F1Soft has become a key player in the Nepali digital economy. The company is known for its widely used platforms such as eSewa and FonePay, and has expanded into more than 18 business verticals. With over 1200 employees and operations extending beyond Nepal to regions like Dubai, F1Soft provided us with a rich example of how modern organizations manage growth, innovation, and complexity.
+
+Our visit to the company was intended to gain insights into how F1Soft is organized internally, how it functions on a daily basis, and how its management system supports its goals. During the visit, we observed the organizational environment and interacted with company representatives to learn about their structure, departmental coordination, leadership approach, and operational strategies.
+
+This report is based on the findings of that visit. It attempts to explore and analyze the structure and management of F1Soft, relate it to theoretical concepts from our course, and reflect on how management principles are applied in practice. Through this case study, we aim to deepen our understanding of how a successful company operates in a competitive and technology-driven industry.
+
+\section{Objectives}
+\begin{enumerate}
+    \item To understand the organizational structure and management practices of F1Soft international.
+    \item To analyze leadership, motivation, and communication systems within the company.
+    \item To relate theoretical concepts of organization and management to real world applications.
+\end{enumerate}
+
+\chapter{Company Profile}
+\section{Basic Information}
+\begin{enumerate} 
+    \item \textbf{Name}: F1Soft International Pvt. Ltd.
+    \item \textbf{Headquarters}: Pulchowk, Lalitpur, Nepal
+    \item \textbf{Established}: 2004
+    \item \textbf{Founded by}: Bishwas Dhakal
+    \item \textbf{Industry}: Financial Technology (FinTech)
+    \item \textbf{Ownership}: Privately held
+    \item \textbf{Employees}: 1200+
+    \item \textbf{Symbol}: Tiger
+    \item \textbf{Business Verticals}: 18
+\end{enumerate}
+\vspace{18pt}
+\section{Core Products}
+\begin{enumerate}
+    \item eSewa
+    \item FonePay
+    \item FoneLoan
+    \item JumJum and others.
+\end{enumerate}
+\vspace{18pt}
+\section{Vision and Missions}
+\begin{enumerate}
+    \item To democratize financial services and create new possibilites for economic progress and individual prosperity.
+    \item To build an inclusive digital financial ecosystem that empowers individuals and businesses through innovative technology solutions.
+\end{enumerate}
+\begin{figure}[h]
+\centering
+\includegraphics[width=25mm, height = 25mm]{images/f1softlogo.png}
+\caption{F1Soft logo}
+\end{figure}
+\newpage
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.2]{images/tiger.jpg}
+\caption{Tiger on a cliff symbol of F1Soft}
+\end{figure}
+\chapter{Organization Structure and Management}
+F1Soft International Pvt. Ltd. operates under a vertical based organizational structure, where each major product or service such as eSewa, FonePay, Foneloan, etc.functions as an independent business vertical. Each vertical is treated almost like a company within a company, with its own management, technical team, and operational strategy. This structure allows for high flexibility, specialization, and innovation within each unit.
+\vspace{18pt}
+\section{Vertical-Based Structure}
+\begin{enumerate}
+    \item Has its own \textbf{Chief Technology Officer (CTO)} who leads technology strategy and implementation.
+    \item Operates with an \textbf{independent team} responsible for development, operations, and support.
+    \item Uses \textbf{different technologies} suited to their product needs.
+    \item Maintains autonomy while aligning with company-wide \textbf{standardization practices}.
+\end{enumerate}
+\vspace{18pt}
+\section{Central Management and Governance}
+\begin{enumerate}
+    \item Strategic decision-making and long-term planning.
+    \item Providing guidance and oversight to all business verticals.
+    \item Ensuring regulatory compliance and ethical standards.
+    \item Facilitating coordination and communication across the company.
+\end{enumerate}
+\vspace{18pt}
+\section{Research and Training Division}
+\begin{enumerate}
+    \item Onboards new employees through structured training programs.
+    \item Promotes standard practices and technological awareness.
+    \item Encourages continuous learning and professional development.
+\end{enumerate}
+\pagebreak
+\subsection{Management Philosophy}
+\begin{enumerate}
+    \item \textbf{Visionary} – Focused on innovation and market leadership.
+    \item \textbf{Decentralized} – Empowering each vertical with decision-making authority.
+    \item \textbf{Collaborative} – Promoting cooperation across teams and departments.
+    \item \textbf{Standardized} – Ensuring uniformity in key processes and policies.
+\end{enumerate}
+This structure enables F1Soft to remain agile, innovative, and efficient, making it a leader in Nepal’s fintech industry.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{images/structure.png}
+\caption{Organizational Structure of F1Soft}
+\end{figure}
 \end{document}
