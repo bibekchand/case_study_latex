@@ -1,9 +1,7 @@
 \documentclass[12pt, a4paper]{report}
 \usepackage[T1]{fontenc}
-\usepackage{times} %times new roman boring 
-%\usepackage{ebgaramond-maths}
-\usepackage{parskip}
 \usepackage{lmodern}
+\usepackage{parskip}
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{enumitem}
@@ -14,25 +12,20 @@
 \renewcommand{\contentsname}{Table of Contents}
 \makeatletter
 \def\@makechapterhead#1{%
-  %\vspace*{50pt}%
   {  \MakeUppercase{\ifnum \c@secnumdepth >\m@ne
         \fontsize{16pt}{1}\bfseries \@chapapp \space \thechapter\vspace{5pt}\\
     \fi
     \interlinepenalty\@M
      \bfseries #1}\par\nobreak
-    %\vskip 0pt
   }}
 \makeatother
 \renewcommand{\labelenumi}{\roman{enumi}.}
 \makeatletter
-% Redefine the \chapter* header macro to remove vertical space
-\def\@makeschapterhead#1{%
-  %\vspace*{50\p@}% Remove the vertical space
+\def\@makeschapterhead#1{
   {\newpage \parindent \z@ \raggedright
     \normalfont
     \interlinepenalty\@M
     \center \fontsize{16pt}{1} \bfseries \MakeUppercase{#1}\par\nobreak
-    %\vskip 18\p@ % adjust space after heading 18pt
   }}
 \makeatother 
 \usepackage[left = 1.5in, right = 1in, top = 1in, bottom = 1in]{geometry}
@@ -67,17 +60,12 @@
 \setlength{\parskip}{0pt} % to remove paragraph spacing in TOC, LOF ...
 \renewcommand{\baselinestretch}{0.1} % to adjust line spacing in toc
 \newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
-\addtocontents{lof}{\protect\noaddvspace} %remove extra vertical space in LOF
-\addtocontents{lot}{\protect\noaddvspace} %remove extra vertical space in LOT
+\addtocontents{lof}{\protect\noaddvspace} 
+\addtocontents{lot}{\protect\noaddvspace} 
 }
-
-
 
 \begin{document}
 %front page
-
-
-
 \begin{titlepage}
 \begin{center}
 {\Large \textbf{Kantipur Engineering College}}\\
@@ -114,7 +102,6 @@ We are deeply grateful to Er. Rabindra Khati Sir, whose guidance and support wer
 We would also like to acknowledge the support and encouragement from the F1Soft family who provided us with their assistance and valuable suggestions.
 
 \par
-%to display members name under Acknowledgement
 \begin{flushright}
 \vskip 20pt
 \setstretch{1.2}
@@ -128,15 +115,13 @@ This case study explores the organizational structure, management practices, and
 \KECadjusttocspacings
 \makeatletter
 \def\@makeschapterhead#1{%
-  %\vspace*{50\p@}% Remove the vertical space above
   {\newpage\parindent\z@\raggedright
     \normalfont
     \interlinepenalty\@M
     \centering
     \fontsize{16pt}{20pt}\selectfont % ✅ MUST include \selectfont
     \bfseries\MakeUppercase{#1}\par\nobreak
-    \vskip 18\p@ % space after heading
-  }}
+    \vskip 18\p@   }}
 \makeatother
 
  
